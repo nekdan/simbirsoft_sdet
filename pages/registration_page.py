@@ -33,6 +33,7 @@ class RegistrationPage(BasePage):
         self.state = "Haryana"
         self.city = "Karnal"
 
+    @allure.step('Вводим First Name и Last Name')
     def enter_full_name(self):
         assert self.is_element_present(*RegistrationPageLocators.FIRST_NAME_INPUT), "Нет поля ввода имени"
         name_input = self.browser.find_element(*RegistrationPageLocators.FIRST_NAME_INPUT)
@@ -41,21 +42,25 @@ class RegistrationPage(BasePage):
         last_name_input = self.browser.find_element(*RegistrationPageLocators.LAST_NAME_INPUT)
         last_name_input.send_keys(self.last_name)
 
+    @allure.step('Вводим Email')
     def enter_email(self):
         assert self.is_element_present(*RegistrationPageLocators.EMAIL_INPUT), "Нет поля ввода email"
         email_input = self.browser.find_element(*RegistrationPageLocators.EMAIL_INPUT)
         email_input.send_keys(self.email)
 
+    @allure.step('Выбираем Gender: Male')
     def choose_male_gender(self):
         assert self.is_element_present(*RegistrationPageLocators.GENDER_MALE_RADIO), "Нет радиобаттона Мужчина"
         male_radio = self.browser.find_element(*RegistrationPageLocators.GENDER_MALE_RADIO)
         male_radio.click()
 
+    @allure.step('Вводим мобильный телефон')
     def enter_phone(self):
         assert self.is_element_present(*RegistrationPageLocators.PHONE_INPUT), "Нет поля ввода телефона"
         phone_input = self.browser.find_element(*RegistrationPageLocators.PHONE_INPUT)
         phone_input.send_keys(self.phone)
 
+    @allure.step('Вводим дату рождения')
     def enter_birth_date(self):
         assert self.is_element_present(*RegistrationPageLocators.DATE_OF_BIRTH_INPUT), "Нет поля с датой рождения"
         date_of_birth = self.browser.find_element(*RegistrationPageLocators.DATE_OF_BIRTH_INPUT)
@@ -66,6 +71,7 @@ class RegistrationPage(BasePage):
         seventh_day = self.browser.find_element(*RegistrationPageLocators.DATEPICKER_DAY)
         seventh_day.click()
 
+    @allure.step('Выбираем предмет: Maths')
     def choose_subject(self):
         assert self.is_element_present(*RegistrationPageLocators.SUBJECTS_INPUT), "Нет поля для ввода предметов"
         subjects_input = self.browser.find_element(*RegistrationPageLocators.SUBJECTS_INPUT)
@@ -74,21 +80,25 @@ class RegistrationPage(BasePage):
         autocomplete_item = self.browser.find_element(*RegistrationPageLocators.AUTOCOMPLETE_FIRST_ITEM)
         autocomplete_item.click()
 
+    @allure.step('Выбираем хобби: Sports')
     def enter_hobby(self):
         assert self.is_element_present(*RegistrationPageLocators.HOBBIES_CHECKBOX_SPORT), "Нет чекбокса для хобби"
         hobbie_checkbox = self.browser.find_element(*RegistrationPageLocators.HOBBIES_CHECKBOX_SPORT)
         hobbie_checkbox.click()
 
+    @allure.step('Загружаем картинку')
     def load_picture(self):
         assert self.is_element_present(*RegistrationPageLocators.FILE_INPUT), "Нет поля для загрузки файла"
         file_input = self.browser.find_element(*RegistrationPageLocators.FILE_INPUT)
         file_input.send_keys(f"{os.getcwd()}/files/{self.picture}")
 
+    @allure.step('Вводим адрес')
     def enter_address(self):
         assert self.is_element_present(*RegistrationPageLocators.ADDRESS_INPUT), "Нет поля для ввода адреса"
         address_input = self.browser.find_element(*RegistrationPageLocators.ADDRESS_INPUT)
         address_input.send_keys(self.address)
 
+    @allure.step('Выбираем State: Haryana')
     def choose_state(self):
         assert self.is_element_present(*RegistrationPageLocators.STATE_SELECT), "Нет поля для выбора штата"
         state_select = self.browser.find_element(*RegistrationPageLocators.STATE_SELECT)
@@ -99,6 +109,7 @@ class RegistrationPage(BasePage):
         state_select_third = self.browser.find_element(*RegistrationPageLocators.STATE_SELECT_THIRD_ITEM)
         state_select_third.click()
 
+    @allure.step('Выбираем City: Karnal')
     def choose_city(self):
         assert self.is_element_present(*RegistrationPageLocators.CITY_SELECT), "Нет поля для выбора города"
         city_input = self.browser.find_element(*RegistrationPageLocators.CITY_SELECT)
@@ -108,6 +119,7 @@ class RegistrationPage(BasePage):
         city_select_first = self.browser.find_element(*RegistrationPageLocators.CITY_SELECT_FIRST_ITEM)
         city_select_first.click()
 
+    @allure.step('Отправляем форму')
     def submit_form(self):
         assert self.is_element_present(*RegistrationPageLocators.SUBMIT_BUTTON), "У формы нет кнопки отправить"
         submit_button = self.browser.find_element(*RegistrationPageLocators.SUBMIT_BUTTON)
